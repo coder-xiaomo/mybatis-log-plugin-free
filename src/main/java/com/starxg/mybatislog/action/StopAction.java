@@ -29,4 +29,17 @@ public class StopAction extends AnAction {
         e.getPresentation().setEnabled(manager.isRunning());
     }
 
+    /**
+     * com.intellij.diagnostic.PluginException: `ActionUpdateThread.OLD_EDT` is deprecated and going to be removed soon. 'com.starxg.mybatislog.action.StopAction' must override `getActionUpdateThread()` and chose EDT or BGT. See ActionUpdateThread javadoc. [Plugin: com.starxg.mybatis-log-plugin-free]
+     * 	at com.intellij.diagnostic.PluginProblemReporterImpl.createPluginExceptionByClass(PluginProblemReporterImpl.java:23)
+     * 	at com.intellij.diagnostic.PluginException.createByClass(PluginException.java:90)
+     * 	at com.intellij.diagnostic.PluginException.reportDeprecatedUsage(PluginException.java:125)
+     * 	at com.intellij.openapi.actionSystem.ActionUpdateThreadAware.getActionUpdateThread(ActionUpdateThreadAware.java:21)
+     * 	at com.intellij.openapi.actionSystem.AnAction.getActionUpdateThread(AnAction.java:201)
+     */
+    @Override
+    public ActionUpdateThread getActionUpdateThread() {
+        // Choose the appropriate thread: EDT or BGT
+        return ActionUpdateThread.EDT; // or ActionUpdateThread.BGT
+    }
 }

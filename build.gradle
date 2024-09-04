@@ -1,6 +1,8 @@
 plugins {
     id 'java'
-    id 'org.jetbrains.intellij' version '0.6.5'
+    id 'org.jetbrains.intellij' version '0.7.3'
+    // 环境版本适配：
+    // https://blog.csdn.net/wl1411956542/article/details/129715175
 }
 
 group 'com.starxg'
@@ -22,8 +24,8 @@ dependencies {
 }
 
 intellij {
-    version '2018.3.6'
-//    version '2020.2'
+//    version '2018.3.6'
+    version '2020.2'
 //    version '2021.2'
 }
 
@@ -32,7 +34,7 @@ tasks.withType(JavaCompile) {
 }
 
 patchPluginXml {
-    sinceBuild = '183'
+    sinceBuild = '201'
 //    sinceBuild = '145.2070'
     untilBuild = ''
     changeNotes """
